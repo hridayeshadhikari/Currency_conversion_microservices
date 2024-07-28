@@ -1,3 +1,7 @@
+![Untitled Diagram drawio (3)](https://github.com/user-attachments/assets/38befb6e-0b87-46ab-96a3-235b865e0f15)
+
+
+
 The currency-network is a Docker bridge network specifically created for the microservices architecture of the currency exchange application. 
 It enables secure communication and data exchange between the different components of the system. 
 This network is defined within the docker-compose.yml file and is used by all services listed below to ensure seamless interaction:
