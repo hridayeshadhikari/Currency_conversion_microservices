@@ -1,0 +1,29 @@
+server:
+  port: 8200
+spring:
+  application:
+   name: API-GATEWAY
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: CURRENCY-EXCHANGE
+          uri: lb://CURRENCY-EXCHANGE
+          predicates:
+              - Path=/currency-exchange/**
+        - id: CURRENCY-CONVERSION
+          uri: lb://CURRENCY-CONVERSION
+          predicates:
+            - Path=/currency-conversion-feign/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+

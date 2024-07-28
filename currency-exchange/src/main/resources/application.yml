@@ -1,0 +1,33 @@
+server:
+  port: 8000
+
+spring:
+  application:
+   name: CURRENCY-EXCHANGE
+  datasource:
+    url: jdbc:mysql://viaduct.proxy.rlwy.net:49316/microservice_db1
+    username: root
+    password: BlrqUPBgbSNIYoEgtJEQsKyQWvMumOas
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    register-with-eureka: true
+  instance:
+    prefer-ip-address: true
+resilience4j:
+  retry:
+    instances:
+      sample-api:
+        max-attempts: 5
+        wait-duration: 2s
+        enable-exponential-backoff: true
+management:
+  tracing:
+    sampling:
+      probability: 1.0
